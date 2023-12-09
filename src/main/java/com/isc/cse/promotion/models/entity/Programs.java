@@ -19,6 +19,7 @@ public class Programs implements Serializable {
 	@Column(length = 15, nullable = false)
 	private String studyProgram;
 	
+	@Column(nullable = false)
 	private Long idProgramType;
 	
 	@Column(length = 30, nullable = false)
