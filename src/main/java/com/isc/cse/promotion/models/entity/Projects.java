@@ -6,30 +6,41 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "project")
 public class Projects implements Serializable {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idProject;
-	
-	@Column(length = 15, nullable = false)
-	private String studyProgram;
-	
-	@Column(length = 15, nullable = false)
-	private String teacherEnrollment;
-	
-	@Column(length = 10, nullable = false)
-	private String controlNumber;
-	
-	private Long idCategory;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "study_program", nullable = false)
+	private Carrer carrer;
+
+	@ManyToMany
+	@JoinTable(name = "projects_academy", joinColumns = @JoinColumn(name = "id_project"), inverseJoinColumns = @JoinColumn(name = "teacher_enrollment"))
+	private Set<Academy> academy;
+
+	@ManyToMany
+	@JoinTable(name = "projects_projectmembers", joinColumns = @JoinColumn(name = "id_project", nullable = false), inverseJoinColumns = @JoinColumn(name = "control_number", nullable = false))
+	private Set<ProjectMembers> projectMember;
+
+	@ManyToMany
+	@JoinTable(name = "projects_categories", joinColumns = @JoinColumn(name = "id_project"), inverseJoinColumns = @JoinColumn(name = "id_category"))
+	private Set<Categories> category;
+
 	@Column(columnDefinition = "TEXT", nullable = false)
 	private String name;
-	
+
 	@Column(columnDefinition = "TEXT", nullable = false)
 	private String description;
 
@@ -41,36 +52,36 @@ public class Projects implements Serializable {
 		this.idProject = idProject;
 	}
 
-	public String getStudyProgram() {
-		return studyProgram;
+	public Carrer getCarrer() {
+		return carrer;
 	}
 
-	public void setStudyProgram(String studyProgram) {
-		this.studyProgram = studyProgram;
+	public void setCarrer(Carrer carrer) {
+		this.carrer = carrer;
 	}
 
-	public String getTeacherEnrollment() {
-		return teacherEnrollment;
+	public Set<Academy> getAcademy() {
+		return academy;
 	}
 
-	public void setTeacherEnrollment(String teacherEnrollment) {
-		this.teacherEnrollment = teacherEnrollment;
+	public void setAcademy(Set<Academy> academy) {
+		this.academy = academy;
 	}
 
-	public String getControlNumber() {
-		return controlNumber;
+	public Set<ProjectMembers> getProjectMember() {
+		return projectMember;
 	}
 
-	public void setControlNumber(String controlNumber) {
-		this.controlNumber = controlNumber;
+	public void setProjectMember(Set<ProjectMembers> projectMember) {
+		this.projectMember = projectMember;
 	}
 
-	public Long getIdCategory() {
-		return idCategory;
+	public Set<Categories> getCategory() {
+		return category;
 	}
 
-	public void setIdCategory(Long idCategory) {
-		this.idCategory = idCategory;
+	public void setCategory(Set<Categories> category) {
+		this.category = category;
 	}
 
 	public String getName() {

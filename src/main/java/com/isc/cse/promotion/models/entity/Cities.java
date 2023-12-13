@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,8 +19,9 @@ public class Cities implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCity;
 
-	@Column(nullable = false)
-	private Long idState;
+	@ManyToOne
+	@JoinColumn(name = "id_state", nullable = false)
+	private States state;
 
 	@Column(nullable = false, length = 80)
 	private String name;
@@ -30,13 +33,13 @@ public class Cities implements Serializable {
 	public void setIdCity(Long idCity) {
 		this.idCity = idCity;
 	}
-
-	public Long getIdState() {
-		return idState;
+	
+	public States getState() {
+		return state;
 	}
 
-	public void setIdState(Long idState) {
-		this.idState = idState;
+	public void setState(States state) {
+		this.state = state;
 	}
 
 	public String getName() {

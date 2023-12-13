@@ -5,6 +5,8 @@ import java.io.Serializable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,8 +17,9 @@ public class Users implements Serializable {
 	@Column(length = 15)
 	private String userEnrollment;
 	
-	@Column(length = 15, nullable = false)
-	private String studyProgram;
+	@ManyToOne
+    @JoinColumn(name = "study_program", nullable = false)
+    private Carrer carrer;
 	
 	@Column(length = 50, nullable = false)
 	private String firstName;
@@ -38,13 +41,13 @@ public class Users implements Serializable {
 		this.userEnrollment = userEnrollment;
 	}
 
-	public String getStudyProgram() {
-		return studyProgram;
-	}
+	public Carrer getCarrer() {
+        return carrer;
+    }
 
-	public void setStudyProgram(String studyProgram) {
-		this.studyProgram = studyProgram;
-	}
+    public void setCarrer(Carrer carrer) {
+        this.carrer = carrer;
+    }
 
 	public String getFirstName() {
 		return firstName;

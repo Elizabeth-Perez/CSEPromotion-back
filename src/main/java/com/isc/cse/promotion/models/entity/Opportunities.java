@@ -1,12 +1,17 @@
 package com.isc.cse.promotion.models.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -16,22 +21,26 @@ public class Opportunities implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idOpportunity;
-	
-	@Column(length = 15, nullable = false)
-	private String studyProgram;
-	
-	@Column(nullable = false)
-	private Long idEntity;
-	
-	@Column(nullable = false)
-	private Long idStay;
-	
-	@Column(nullable = false)
-	private Long idParticipant;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "study_program", nullable = false)
+	private Carrer carrer;
+
+	@ManyToOne
+	@JoinColumn(name = "id_entity", nullable = false)
+	private Entities entity;
+
+	@ManyToMany
+	@JoinTable(name = "opportunities_stays", joinColumns = @JoinColumn(name = "id_opportunity"), inverseJoinColumns = @JoinColumn(name = "id_stay"))
+	private Set<Stays> stay;
+
+	@ManyToMany
+	@JoinTable(name = "opportunities_participants", joinColumns = @JoinColumn(name = "id_opportunity"), inverseJoinColumns = @JoinColumn(name = "id_participant"))
+	private Set<Participants> participant;
+
 	@Column(columnDefinition = "TEXT", nullable = false)
 	private String imageURL;
-	
+
 	@Column(columnDefinition = "TEXT", nullable = false)
 	private String hyperlink;
 
@@ -43,36 +52,36 @@ public class Opportunities implements Serializable {
 		this.idOpportunity = idOpportunity;
 	}
 
-	public String getStudyProgram() {
-		return studyProgram;
+	public Carrer getCarrer() {
+		return carrer;
 	}
 
-	public void setStudyProgram(String studyProgram) {
-		this.studyProgram = studyProgram;
+	public void setCarrer(Carrer carrer) {
+		this.carrer = carrer;
 	}
 
-	public Long getIdEntity() {
-		return idEntity;
+	public Entities getEntity() {
+		return entity;
 	}
 
-	public void setIdEntity(Long idEntity) {
-		this.idEntity = idEntity;
+	public void setEntity(Entities entity) {
+		this.entity = entity;
 	}
 
-	public Long getIdStay() {
-		return idStay;
+	public Set<Stays> getStay() {
+		return stay;
 	}
 
-	public void setIdStay(Long idStay) {
-		this.idStay = idStay;
+	public void setStay(Set<Stays> stay) {
+		this.stay = stay;
 	}
 
-	public Long getIdParticipant() {
-		return idParticipant;
+	public Set<Participants> getParticipant() {
+		return participant;
 	}
 
-	public void setIdParticipant(Long idParticipant) {
-		this.idParticipant = idParticipant;
+	public void setParticipant(Set<Participants> participant) {
+		this.participant = participant;
 	}
 
 	public String getImageURL() {

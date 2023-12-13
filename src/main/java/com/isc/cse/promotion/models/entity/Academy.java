@@ -1,10 +1,15 @@
 package com.isc.cse.promotion.models.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,19 +19,27 @@ public class Academy implements Serializable {
 	@Id
 	@Column(length = 15, nullable = false)
 	private String teacherEnrollment;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "study_program", nullable = false)
+	private Carrer carrer;
+
+	@ManyToMany
+	@JoinTable(name = "academy_titulation", joinColumns = @JoinColumn(name = "teacher_enrollment"), inverseJoinColumns = @JoinColumn(name = "id_titulation_project"))
+	private Set<TitulationProjects> titulationProyect;
+
 	@Column(length = 50, nullable = false)
 	private String firstName;
-	
+
 	@Column(length = 50, nullable = false)
 	private String lastName;
-	
+
 	@Column(length = 15, nullable = false)
 	private String degree;
-	
+
 	@Column(length = 15, nullable = false)
 	private String rol;
-	
+
 	@Column(length = 100, nullable = false)
 	private String email;
 
@@ -36,6 +49,22 @@ public class Academy implements Serializable {
 
 	public void setTeacherEnrollment(String teacherEnrollment) {
 		this.teacherEnrollment = teacherEnrollment;
+	}
+
+	public Carrer getCarrer() {
+		return carrer;
+	}
+
+	public void setCarrer(Carrer carrer) {
+		this.carrer = carrer;
+	}
+
+	public Set<TitulationProjects> getProyect() {
+		return titulationProyect;
+	}
+
+	public void setProyect(Set<TitulationProjects> titulationProyect) {
+		this.titulationProyect = titulationProyect;
 	}
 
 	public String getFirstName() {

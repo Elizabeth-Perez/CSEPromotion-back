@@ -7,39 +7,25 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "state")
-public class States implements Serializable {
-
+@Table(name = "stay")
+public class Stays implements Serializable {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idState;
-
-	@ManyToOne
-	@JoinColumn(name = "id_country", nullable = false)
-	private Countries country;
-
-	@Column(length = 80, nullable = false)
+	private Long idStay;
+	
+	@Column(length = 25, nullable = false)
 	private String name;
-
-	public Long getIdState() {
-		return idState;
+	
+	public Long getIdStay() {
+		return idStay;
 	}
 
-	public void setIdState(Long idState) {
-		this.idState = idState;
-	}
-
-	public Countries getCountry() {
-		return country;
-	}
-
-	public void setIdCountry(Countries country) {
-		this.country = country;
+	public void setIdStay(Long idStay) {
+		this.idStay = idStay;
 	}
 
 	public String getName() {

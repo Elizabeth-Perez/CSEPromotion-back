@@ -29,7 +29,7 @@ public class Carrer implements Serializable {
 	private String chartUrl;
 
 	@Column(columnDefinition = "TEXT", nullable = false)
-	private String mision;
+	private String mission;
 
 	@Column(columnDefinition = "TEXT", nullable = false)
 	private String vision;
@@ -45,6 +45,15 @@ public class Carrer implements Serializable {
 
 	@Column(columnDefinition = "TEXT", nullable = false)
 	private String graduationProfile;
+
+	@Column(columnDefinition = "TEXT", nullable = false)
+	private String snFacebook;
+
+	@Column(columnDefinition = "TEXT", nullable = false)
+	private String snInstagram;
+
+	@Column(columnDefinition = "TEXT", nullable = false)
+	private String snLinkedin;
 
 	public String getStudyProgram() {
 		return studyProgram;
@@ -94,12 +103,12 @@ public class Carrer implements Serializable {
 		this.chartUrl = chartUrl;
 	}
 
-	public String getMision() {
-		return mision;
+	public String getMission() {
+		return mission;
 	}
 
-	public void setMision(String mision) {
-		this.mision = mision;
+	public void setMission(String mision) {
+		this.mission = mision;
 	}
 
 	public String getVision() {
@@ -140,6 +149,30 @@ public class Carrer implements Serializable {
 
 	public void setGraduationProfile(String graduationProfile) {
 		this.graduationProfile = graduationProfile;
+	}
+
+	public String getSnFacebook() {
+		return snFacebook;
+	}
+
+	public void setSnFacebook(String snFacebook) {
+		this.snFacebook = snFacebook;
+	}
+
+	public String getSnInstagram() {
+		return snInstagram;
+	}
+
+	public void setSnInstagram(String snInstagram) {
+		this.snInstagram = snInstagram;
+	}
+
+	public String getSnLinkedin() {
+		return snLinkedin;
+	}
+
+	public void setSnLinkedin(String snLinkedin) {
+		this.snLinkedin = snLinkedin;
 	}
 
 	private static final long serialVersionUID = 1L;

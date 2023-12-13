@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,14 +19,17 @@ public class CompetitionGrades implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCompetitionGrade;
 
-	@Column(nullable = false)
-	private Long idinnovationGrade;
+	@ManyToOne
+	@JoinColumn(name = "id_Innovation_project", nullable = false)
+	private InnovationProjects innovationProject;
 
-	@Column(nullable = false)
-	private Long idCompetition;
+	@ManyToOne
+	@JoinColumn(name = "id_competition", nullable = false)
+	private Competitions competition;
 
-	@Column(nullable = false)
-	private Long idCity;
+	@ManyToOne
+	@JoinColumn(name = "id_city", nullable = false)
+	private Cities city;
 
 	@Column(length = 10, nullable = false)
 	private String eventDate;
@@ -37,28 +42,28 @@ public class CompetitionGrades implements Serializable {
 		this.idCompetitionGrade = idCompetitionGrade;
 	}
 
-	public Long getIdinnovationGrade() {
-		return idinnovationGrade;
+	public InnovationProjects getInnovationProject() {
+		return innovationProject;
 	}
 
-	public void setIdinnovationGrade(Long idinnovationGrade) {
-		this.idinnovationGrade = idinnovationGrade;
+	public void setInnovationProject(InnovationProjects innovationProject) {
+		this.innovationProject = innovationProject;
 	}
 
-	public Long getIdCompetition() {
-		return idCompetition;
+	public Competitions getCompetition() {
+		return competition;
 	}
 
-	public void setIdCompetition(Long idCompetition) {
-		this.idCompetition = idCompetition;
+	public void setCompetition(Competitions competition) {
+		this.competition = competition;
+	}
+	
+	public Cities getCity() {
+		return city;
 	}
 
-	public Long getIdCity() {
-		return idCity;
-	}
-
-	public void setIdCity(Long idCity) {
-		this.idCity = idCity;
+	public void setCity(Cities city) {
+		this.city = city;
 	}
 
 	public String getEventDate() {

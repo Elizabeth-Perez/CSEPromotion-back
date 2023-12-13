@@ -6,6 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
 import java.io.Serializable;
 
 @Entity
@@ -14,13 +17,15 @@ public class Programs implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idPrograms;
+	private Long idProgram;
 	
-	@Column(length = 15, nullable = false)
-	private String studyProgram;
+	@ManyToOne
+	@JoinColumn(name = "study_program", nullable = false)
+	private Carrer carrer;
 	
-	@Column(nullable = false)
-	private Long idProgramType;
+	@ManyToOne
+	@JoinColumn(name = "id_program_type", nullable = false)
+	private ProgramType programType;
 	
 	@Column(length = 30, nullable = false)
 	private String name;
@@ -35,27 +40,27 @@ public class Programs implements Serializable {
 	private String hyperlink;
 
 	public Long getIdPrograms() {
-		return idPrograms;
+		return idProgram;
 	}
 
-	public void setIdPrograms(Long idPrograms) {
-		this.idPrograms = idPrograms;
+	public void setIdPrograms(Long idProgram) {
+		this.idProgram = idProgram;
 	}
 
-	public String getStudyProgram() {
-		return studyProgram;
+	public Carrer getCarrer() {
+		return carrer;
 	}
 
-	public void setStudyProgram(String studyProgram) {
-		this.studyProgram = studyProgram;
+	public void setCarrer(Carrer carrer) {
+		this.carrer = carrer;
 	}
 
-	public Long getIdProgramType() {
-		return idProgramType;
+	public ProgramType getProgramType() {
+		return programType;
 	}
 
-	public void setIdProgramType(Long idProgramType) {
-		this.idProgramType = idProgramType;
+	public void setProgramType(ProgramType programType) {
+		this.programType = programType;
 	}
 
 	public String getName() {
