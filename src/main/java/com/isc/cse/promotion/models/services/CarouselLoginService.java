@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.isc.cse.promotion.models.dao.ICarouselLoginDao;
-import com.isc.cse.promotion.models.entity.CarouselsLogin;
 import com.isc.cse.promotion.projections.CarouselLoginProjection.DataImages;
 
 @Service
