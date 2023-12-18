@@ -23,8 +23,8 @@ public class SystemConfiguration implements Serializable {
 	@JoinColumn(name = "user_enrollment", nullable = false)
 	private Users user;
 
-	@Column(length = 15, nullable = false)
-	private boolean sesion;
+	@Column(length = 1, nullable = false)
+	private String session;
 
 	public Long getIdSystemConfiguration() {
 		return idSystemConfiguration;
@@ -42,12 +42,12 @@ public class SystemConfiguration implements Serializable {
 		this.user = user;
 	}
 
-	public boolean isSesion() {
-		return sesion;
+	public String getSession() {
+		return session;
 	}
 
-	public void setSesion(boolean sesion) {
-		this.sesion = sesion;
+	public void setSession(String session) {
+		this.session = session;
 	}
 
 	private static final long serialVersionUID = 1L;

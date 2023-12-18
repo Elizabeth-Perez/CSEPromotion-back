@@ -13,7 +13,7 @@ public class Carrer implements Serializable {
 	@Column(length = 15)
 	private String studyProgram;
 
-	@Column(length = 2, nullable = false)
+	@Column(length = 3, nullable = false)
 	private String extension;
 
 	@Column(length = 10, nullable = false)
@@ -50,7 +50,7 @@ public class Carrer implements Serializable {
 	private String snFacebook;
 
 	@Column(columnDefinition = "TEXT", nullable = false)
-	private String snInstagram;
+	private String snYoutube;
 
 	@Column(columnDefinition = "TEXT", nullable = false)
 	private String snLinkedin;
@@ -159,12 +159,12 @@ public class Carrer implements Serializable {
 		this.snFacebook = snFacebook;
 	}
 
-	public String getSnInstagram() {
-		return snInstagram;
+	public String getSnYoutube() {
+		return snYoutube;
 	}
 
-	public void setSnInstagram(String snInstagram) {
-		this.snInstagram = snInstagram;
+	public void setSnYoutube(String snYoutube) {
+		this.snYoutube = snYoutube;
 	}
 
 	public String getSnLinkedin() {
