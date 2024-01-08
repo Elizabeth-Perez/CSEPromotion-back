@@ -5,21 +5,13 @@ import com.isc.cse.promotion.projections.EmailProjection;
 public class ForgottenPasswordResponse implements EmailProjection{
 
 	private boolean send;
-	private String codeGenerated;
 	
-	public ForgottenPasswordResponse(boolean send, String codeGenerated) {
+	public ForgottenPasswordResponse(boolean send) {
         this.send = send;
-        this.codeGenerated = codeGenerated;
     }
 	
 	@Override
 	public boolean isSend() {
 		return send;
 	}
-
-	@Override
-	public String getCodeGenerated() {
-		return codeGenerated;
-	}
-
 }
