@@ -5,6 +5,7 @@ import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -24,7 +25,7 @@ public class Academy implements Serializable {
 	@JoinColumn(name = "study_program", nullable = false)
 	private Carrer carrer;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "academy_titulation", joinColumns = @JoinColumn(name = "teacher_enrollment"), inverseJoinColumns = @JoinColumn(name = "id_titulation_project"))
 	private Set<TitulationProjects> titulationProyect;
 

@@ -5,6 +5,7 @@ import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,16 +31,16 @@ public class Opportunities implements Serializable {
 	@JoinColumn(name = "id_entity", nullable = false)
 	private Entities entity;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "opportunities_stays", joinColumns = @JoinColumn(name = "id_opportunity"), inverseJoinColumns = @JoinColumn(name = "id_stay"))
 	private Set<Stays> stay;
 
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "opportunities_participants", joinColumns = @JoinColumn(name = "id_opportunity"), inverseJoinColumns = @JoinColumn(name = "id_participant"))
 	private Set<Participants> participant;
 
 	@Column(columnDefinition = "TEXT", nullable = false)
-	private String imageURL;
+	private String imageUrl;
 
 	@Column(columnDefinition = "TEXT", nullable = false)
 	private String hyperlink;
@@ -85,11 +86,11 @@ public class Opportunities implements Serializable {
 	}
 
 	public String getImageURL() {
-		return imageURL;
+		return imageUrl;
 	}
 
-	public void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
+	public void setImageURL(String imageUrl) {
+		this.imageUrl = imageUrl;
 	}
 
 	public String getHyperlink() {

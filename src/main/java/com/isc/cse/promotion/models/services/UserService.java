@@ -8,22 +8,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.isc.cse.promotion.models.dao.IUserDao;
 import com.isc.cse.promotion.models.entity.Users;
-import com.isc.cse.promotion.projections.UserProjection.UserAccess;
 
 @Service
 public class UserService implements IUserService{
 	
 	@Autowired
 	private IUserDao userDao;
-
-	@Override
-	public List<UserAccess> getUserAccess() {
-		return userDao.getUserAccess();
-	}
 	
 	@Override
 	@Transactional(readOnly = true)
-	public List<Users> findAll() {
+	public List<Users> all() {
 		return (List<Users>) userDao.findAll();
 	}
 
@@ -35,7 +29,7 @@ public class UserService implements IUserService{
 
 	@Override
 	@Transactional
-	public Users save(Users user) {
+	public Users add(Users user) {
 		return userDao.save(user);
 	}
 

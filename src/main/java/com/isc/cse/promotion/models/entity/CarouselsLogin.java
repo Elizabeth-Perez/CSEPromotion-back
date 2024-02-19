@@ -37,11 +37,11 @@ public class CarouselsLogin implements Serializable {
 		this.idCarouselLogin = idCarouselLogin;
 	}
 	
-    public Carousels getCarrer() {
+    public Carousels getCarousel() {
         return carousel;
     }
 
-    public void setCarrer(Carousels carousel) {
+    public void setCarousel(Carousels carousel) {
         this.carousel = carousel;
     }
 

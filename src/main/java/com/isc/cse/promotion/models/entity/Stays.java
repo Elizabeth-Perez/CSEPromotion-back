@@ -17,7 +17,7 @@ public class Stays implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idStay;
 	
-	@Column(length = 25, nullable = false)
+	@Column(length = 100, nullable = false)
 	private String name;
 	
 	public Long getIdStay() {

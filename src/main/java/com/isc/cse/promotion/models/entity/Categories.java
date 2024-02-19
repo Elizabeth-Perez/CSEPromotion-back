@@ -17,7 +17,7 @@ public class Categories implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCategory;
 
-	@Column(length = 30, nullable = false)
+	@Column(length = 100, nullable = false)
 	private String name;
 
 	public Long getIdCategory() {

@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Table(name = "program")
 public class Programs implements Serializable {
 
-	@Id
+	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idProgram;
 	
@@ -27,7 +27,7 @@ public class Programs implements Serializable {
 	@JoinColumn(name = "id_program_type", nullable = false)
 	private ProgramType programType;
 	
-	@Column(length = 30, nullable = false)
+	@Column(length = 100, nullable = false)
 	private String name;
 	
 	@Column(columnDefinition = "TEXT", nullable = false)
@@ -39,11 +39,11 @@ public class Programs implements Serializable {
 	@Column(columnDefinition = "TEXT", nullable = false)
 	private String hyperlink;
 
-	public Long getIdPrograms() {
+	public Long getIdProgram() {
 		return idProgram;
 	}
 
-	public void setIdPrograms(Long idProgram) {
+	public void setIdProgram(Long idProgram) {
 		this.idProgram = idProgram;
 	}
 

@@ -23,7 +23,7 @@ public class Skills implements Serializable {
 	@JoinColumn(name = "key_speciality")
 	private Specialities speciality;
 
-	@Column(length = 30, nullable = false)
+	@Column(length = 100, nullable = false)
 	private String name;
 
 	@Column(columnDefinition = "TEXT", nullable = false)

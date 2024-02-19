@@ -21,11 +21,14 @@ public class Specialities implements Serializable {
 	@JoinColumn(name = "study_program")
 	private Carrer carrer;
 	
-	@Column(length = 30, nullable = false)
+	@Column(length = 100, nullable = false)
 	private String name;
 	
 	@Column(columnDefinition = "TEXT", nullable = false)
 	private String definition;
+	
+	@Column(columnDefinition = "TEXT", nullable = false)
+	private String imageUrl;
 
 	public String getKeySpeciality() {
 		return keySpeciality;
@@ -58,6 +61,15 @@ public class Specialities implements Serializable {
 	public void setDefinition(String definition) {
 		this.definition = definition;
 	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 
 	private static final long serialVersionUID = 1L;
 

@@ -15,7 +15,6 @@ import com.isc.cse.promotion.models.entity.Users;
 import com.isc.cse.promotion.models.services.CarouselLoginService;
 import com.isc.cse.promotion.models.services.UserService;
 import com.isc.cse.promotion.projections.CarouselLoginProjection.DataImages;
-import com.isc.cse.promotion.projections.UserProjection.UserAccess;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
@@ -32,15 +31,10 @@ public class LoginCtrl {
 	public List<DataImages> getDataImages(){		
 		return carouselLoginService.getDataImages("Login");
 	}
-
-	@GetMapping("/user-access")
-	public List<UserAccess> getUserAccess(){
-		return userService.getUserAccess();
-	}
 	
 	@GetMapping("/all")
 	public List<Users> all(){
-		return userService.findAll();
+		return userService.all();
 	}
 	
 	@GetMapping("/all/{userEnrollment}")
@@ -56,7 +50,7 @@ public class LoginCtrl {
 		userCurrent.setLastName(user.getLastName());
 		userCurrent.setUser(user.getUser());
 		userCurrent.setPassword(user.getPassword());
-		return userService.save(userCurrent);
+		return userService.add(userCurrent);
 	}
 	
 }

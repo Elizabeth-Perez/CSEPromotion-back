@@ -54,6 +54,9 @@ public class Carrer implements Serializable {
 
 	@Column(columnDefinition = "TEXT", nullable = false)
 	private String snLinkedin;
+	
+	@Column(columnDefinition = "TEXT", nullable = false)
+	private String status;
 
 	public String getStudyProgram() {
 		return studyProgram;
@@ -173,6 +176,14 @@ public class Carrer implements Serializable {
 
 	public void setSnLinkedin(String snLinkedin) {
 		this.snLinkedin = snLinkedin;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	private static final long serialVersionUID = 1L;
