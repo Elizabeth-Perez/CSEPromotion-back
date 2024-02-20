@@ -17,7 +17,7 @@ public class Entities implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idEntity;
 	
-	@Column(length = 100, nullable = false)
+	@Column(length = 150, nullable = false)
 	private String name;
 
 	public Long getIdEntity() {
@@ -38,4 +38,5 @@ public class Entities implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	
 }

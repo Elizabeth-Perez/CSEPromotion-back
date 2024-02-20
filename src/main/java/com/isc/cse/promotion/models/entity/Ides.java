@@ -22,7 +22,7 @@ public class Ides implements Serializable {
 	private Long idIde;
 
 	@ManyToMany
-	@JoinTable(name = "specialities_ides", joinColumns = @JoinColumn(name = "id_speciality"), inverseJoinColumns = @JoinColumn(name = "id_ide"))
+	@JoinTable(name = "specialities_ides", joinColumns = @JoinColumn(name = "id_ide"), inverseJoinColumns = @JoinColumn(name = "key_speciality"))
 	private Set<Specialities> speciality;
 
 	@Column(length = 30, nullable = false)

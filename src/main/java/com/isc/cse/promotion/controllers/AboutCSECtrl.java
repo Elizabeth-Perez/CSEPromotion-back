@@ -13,7 +13,7 @@ import com.isc.cse.promotion.models.entity.Carrer;
 import com.isc.cse.promotion.models.services.CareerService;
 import com.isc.cse.promotion.models.services.CarouselService;
 
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"http://csepromotion.s3-website.us-east-2.amazonaws.com/"})
 @RestController
 @RequestMapping("/about-cse")
 public class AboutCSECtrl {

@@ -27,7 +27,7 @@ public class Certifications implements Serializable {
 	@JoinColumn(name = "key_speciality")
 	private Specialities speciality;
 
-	@Column(length = 50, nullable = false)
+	@Column(length = 100, nullable = false)
 	private String name;
 
 	public Long getIdCertification() {

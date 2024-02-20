@@ -16,7 +16,7 @@ import com.isc.cse.promotion.projections.EmailProjection;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"http://csepromotion.s3-website.us-east-2.amazonaws.com/"})
 @RestController
 @RequestMapping("/email")
 public class EmailCtrl {

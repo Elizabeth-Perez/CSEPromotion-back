@@ -22,7 +22,7 @@ public class ProgrammingLanguages implements Serializable {
 	private Long idProgrammingLanguage;
 
 	@ManyToMany
-	@JoinTable(name = "specialities_languages", joinColumns = @JoinColumn(name = "id_speciality"), inverseJoinColumns = @JoinColumn(name = "id_programming_languages"))
+	@JoinTable(name = "specialities_languages", joinColumns = @JoinColumn(name = "id_programming_language"), inverseJoinColumns = @JoinColumn(name = "key_speciality"))
 	private Set<Specialities> speciality;
 
 	@Column(length = 30, nullable = false)

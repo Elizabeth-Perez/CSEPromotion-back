@@ -16,7 +16,7 @@ import com.isc.cse.promotion.models.services.CarouselLoginService;
 import com.isc.cse.promotion.models.services.UserService;
 import com.isc.cse.promotion.projections.CarouselLoginProjection.DataImages;
 
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"http://csepromotion.s3-website.us-east-2.amazonaws.com/"})
 @RestController
 @RequestMapping("/login")
 public class LoginCtrl {
