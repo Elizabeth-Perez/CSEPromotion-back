@@ -9,28 +9,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.isc.cse.promotion.models.entity.Carousels;
-import com.isc.cse.promotion.models.entity.Carrer;
-import com.isc.cse.promotion.models.services.CareerService;
+import com.isc.cse.promotion.models.entity.Projects;
 import com.isc.cse.promotion.models.services.CarouselService;
+import com.isc.cse.promotion.models.services.ProjectService;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
-@RequestMapping("/about-cse")
-public class AboutCSECtrl {
+@RequestMapping("/projects")
+public class ProjectsCtrl {
+	
+	@Autowired
+	private ProjectService projectsService;
 	
 	@Autowired
 	private CarouselService carouselService;
 	
-	@Autowired
-	private CareerService careerService;
-	
 	@GetMapping("/carousels/all")
-	public List<Carousels> allCarousel(){
+	public List<Carousels> getCarousels(){		
 		return carouselService.all();
 	}
 	
-	@GetMapping("/careers/all")
-	public List<Carrer> allCareers(){
-		return careerService.all();
+	@GetMapping("/all")
+	public List<Projects> getProjects(){		
+		return projectsService.all();
 	}
+
 }

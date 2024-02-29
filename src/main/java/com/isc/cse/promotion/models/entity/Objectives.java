@@ -17,7 +17,7 @@ public class Objectives implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idObjective;
 	
-	@Column(length = 30, nullable = false)
+	@Column(length = 100, nullable = false)
 	private String name;
 
 	public Long getIdObjective() {
